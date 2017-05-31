@@ -3,7 +3,14 @@
     <!--<a><img class="mini" alt="logo" src="assets/img/nav/logo-mini.png" /></a>-->
   </div>
   <a class="nav-links">
-    
+    <ul>
+      <li [routerLinkActive]="['active']">
+          <a [routerLink]="['/specific']">specific</a>
+      </li>
+      <li [routerLinkActive]="['active']">
+          <a [routerLink]="['/']">mainView</a>
+      </li>
+    </ul>
   </a>
   <div class="divider"></div>
   <a class="nav-links">
