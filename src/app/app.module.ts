@@ -8,6 +8,7 @@ import { AppComponent } from './app.component';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
 
 import { MaterialModule } from '@angular/material';
+import { FlexLayoutModule } from '@angular/flex-layout';
 import '@angular/material/prebuilt-themes/purple-green.css';
 import { MainViewComponent } from './main-view/main-view.component';
 import { AppRoutesModule } from './app.routing';
@@ -27,6 +28,7 @@ import { MoreSpecificComponent } from './more-specific/more-specific.component';
     HttpModule,
     BrowserAnimationsModule,
     MaterialModule,
+    FlexLayoutModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

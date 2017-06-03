@@ -3,7 +3,7 @@ import { MainViewComponent } from './main-view/main-view.component';
 import { MoreSpecificComponent } from './more-specific/more-specific.component';
 
 const appRoutes: Routes = [
-    { path: '', pathMatch: 'full', component: MainViewComponent  },
-    { path: 'specific/:id', component: MoreSpecificComponent }
+  { path: '', pathMatch: 'full', component: MainViewComponent },
+  { path: 'specific/:id', component: MoreSpecificComponent }
 ];
-export const AppRoutesModule = RouterModule.forRoot(appRoutes);
+export const AppRoutesModule = RouterModule.forRoot(appRoutes, { useHash: true });
