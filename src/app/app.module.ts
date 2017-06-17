@@ -3,16 +3,18 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MaterialModule } from '@angular/material';
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 import { AppComponent } from './app.component';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
-
-import { MaterialModule } from '@angular/material';
-import { FlexLayoutModule } from '@angular/flex-layout';
-import '@angular/material/prebuilt-themes/purple-green.css';
 import { MainViewComponent } from './main-view/main-view.component';
 import { AppRoutesModule } from './app.routing';
 import { MoreSpecificComponent } from './more-specific/more-specific.component';
+import { ApiService } from "./api.service";
+
+
+import '@angular/material/prebuilt-themes/purple-green.css';
 
 @NgModule({
   declarations: [
@@ -30,7 +32,9 @@ import { MoreSpecificComponent } from './more-specific/more-specific.component';
     MaterialModule,
     FlexLayoutModule,
   ],
-  providers: [],
+  providers: [
+    ApiService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

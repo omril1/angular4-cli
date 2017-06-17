@@ -6,6 +6,7 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
+    "deploy": "ng build --prod && angular-cli-ghpages --no-silent --repo=https://github.com/omril1/omril1.github.io.git --branch master",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"

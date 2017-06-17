@@ -1,4 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { ApiService } from '../api.service';
+// import { Observable } from 'rxjs/Observable';
+import { Observable } from 'rxjs';
+// import { Observable } from 'rxjs/Rx';
+// import 'rxjs/add/operator/retryWhen';
 
 @Component({
   selector: 'app-main-view',
@@ -7,9 +12,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MainViewComponent implements OnInit {
 
-  constructor() { }
-
-  ngOnInit() {
+  constructor(private ApiService: ApiService) {
   }
 
+  ngOnInit () {
+  }
 }
