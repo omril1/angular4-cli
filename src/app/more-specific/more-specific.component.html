@@ -1,4 +1,11 @@
 <div class="visual-illusion" fxLayout="row" fxLayoutAlign="center center" 
-  (mousemove)="moveStuff($event)" (keydown)="keydownUp($event)" tabindex="0">
-  <div class="inner">ID is: {{id | async}}</div>
+  (mousemove)="moveStuff($event)">
+  <div class="inner">
+    <div class="face top"    [style.transform]="calculateTransform(-90, 0)"></div>
+    <div class="face right"  [style.transform]="calculateTransform(0, 90)"></div>
+    <div class="face left"   [style.transform]="calculateTransform(0, -90)"></div>
+    <div class="face front"  [style.transform]="calculateTransform(0, 0)"></div>
+    <div class="face back"   [style.transform]="calculateTransform(180, 0)"></div>
+    <div class="face bottom" [style.transform]="calculateTransform(90, 0)"></div>
+  </div>
 </div>

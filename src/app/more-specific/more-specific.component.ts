@@ -1,4 +1,5 @@
-import { Component, OnInit, NgZone } from '@angular/core';
+import { Component, OnInit, NgZone} from '@angular/core';
+import { DomSanitizer, SafeStyle } from '@angular/platform-browser';
 import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
 import 'rxjs/add/operator/map';
@@ -12,8 +13,9 @@ export class MoreSpecificComponent implements OnInit {
   id: Observable<Number>
   transformation = 0
   transOriginX = 0
+  cubeOffset = ''
 
-  constructor(private route: ActivatedRoute, private NgZone: NgZone) { }
+  constructor(private route: ActivatedRoute, private NgZone: NgZone, private sanitizer: DomSanitizer) { }
 
   ngOnInit () {
     this.id = this.route.params.map(params => params['id']);
@@ -22,49 +24,16 @@ export class MoreSpecificComponent implements OnInit {
   moveStuff (event) {
     let { offsetX, offsetY } = event;
     let { clientWidth, clientHeight } = event.target;
-    let turnY = (clientWidth / 2 - offsetX) / clientWidth * 100;
-    let turnX = (clientHeight / 2 - offsetY) / clientHeight * 100;
-    this.NgZone.runOutsideAngular(() => {
-      let inner = <HTMLElement>event.target.children[0];
-      inner.style.transformOrigin = `calc(50% + ${this.transOriginX}px) 50% 0`;
-      if (inner) {
-        switch (this.transformation) {
-          case 0:
-            inner.style.transform = `rotateZ(${- Math.atan2(turnY, turnX)}rad)`; // always towards the cursor
-            break;
-          case 1:
-            inner.style.transform = `rotateX(${turnX}deg) rotateY(${turnY}deg)`; // rotates around central axis
-            break;
-          case 2:
-            inner.style.transform = `skewX(${turnX}deg) skewY(${turnY}deg)`; // skews away
-            break;
-        }
-      }
-    });
+    let turnY = (clientWidth / 2 - offsetX) / clientWidth * 50;
+    let turnX = (clientHeight / 2 - offsetY) / clientHeight * 50;
+
+    let inner = <HTMLElement>event.target.children[0];
+    inner.style.transformOrigin = `calc(50% + ${this.transOriginX}px) 50% 0`;
+
+    this.cubeOffset = `rotateX(${turnX}rad) rotateY(${turnY}rad)`;
   }
 
-  keydownUp (event) {
-    switch (event.key) {
-      case "ArrowUp":
-        this.transformation++;
-        if (this.transformation == 3) {
-          this.transformation = 0;
-        }
-        break;
-      case "ArrowDown":
-        this.transformation--;
-        if (this.transformation == -1) {
-          this.transformation = 2;
-        }
-        break;
-      case "ArrowLeft":
-        this.transOriginX += 5;
-        break;
-      case "ArrowRight":
-        this.transOriginX -= 5;
-        break;
-      default:
-        break;
-    }
+  calculateTransform(rotateX, rotateY) {
+    return this.sanitizer.bypassSecurityTrustStyle(this.cubeOffset + ` rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateZ( 120px )`);
   }
 }

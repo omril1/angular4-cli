@@ -1,8 +1,30 @@
+$size = 200px
+
 .visual-illusion
   width 100%
   height 100%
-  font-size 10rem
+  background-color black;//cornsilk
   .inner
-    perspective 150px
-    pointer-events: none
-    text-shadow: 0 0 4px black
+    perspective 4000px
+    pointer-events none
+    position relative
+    .face
+      position absolute
+      width $size
+      height $size
+      backface-visibility hidden
+      left "calc(50% - calc(%s / 2))" % $size
+      top  "calc(50% - calc(%s / 2))" % $size
+      transition transform 50ms ease
+      &.top
+        background-color: orange
+      &.right
+        background-color: white
+      &.left
+        background-color: red
+      &.front
+        background-color: green
+      &.back
+        background-color: yellow
+      &.bottom
+        background-color: blue
