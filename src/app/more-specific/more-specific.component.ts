@@ -29,11 +29,6 @@ export class MoreSpecificComponent implements OnInit {
 
     let inner = <HTMLElement>event.target.children[0];
     inner.style.transformOrigin = `calc(50% + ${this.transOriginX}px) 50% 0`;
-
-    this.cubeOffset = `rotateX(${turnX}rad) rotateY(${turnY}rad)`;
-  }
-
-  calculateTransform(rotateX, rotateY) {
-    return this.sanitizer.bypassSecurityTrustStyle(this.cubeOffset + ` rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateZ( 120px )`);
+    inner.style.transform = `rotateX(${turnX}rad) rotateY(${turnY}rad)`;
   }
 }
