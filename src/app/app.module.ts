@@ -11,6 +11,7 @@ import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { MainViewComponent } from './main-view/main-view.component';
 import { AppRoutesModule } from './app.routing';
 import { MoreSpecificComponent } from './more-specific/more-specific.component';
+import { LoopsComponent } from './loops/loops.component';
 import { ApiService } from "./api.service";
 
 
@@ -21,7 +22,8 @@ import '@angular/material/prebuilt-themes/purple-green.css';
     AppComponent,
     NavBarComponent,
     MainViewComponent,
-    MoreSpecificComponent
+    MoreSpecificComponent,
+    LoopsComponent
   ],
   imports: [
     AppRoutesModule,
