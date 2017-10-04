@@ -7,27 +7,21 @@
     <div class="item-header">link</div>
     <div class="item-header">Property1</div>
     <div class="item-header">Property2</div>
-    <div class="item-header">Property3</div>
-    <div class="item-header">Property4</div>
   </div>
   <div class="table-rows">
     <div class="item-row">
       <div class="item-property">
-        <button md-button routerLink="/loops">loops</button>
+        <button md-button routerLink="/loops">Rotating box with text on it</button>
       </div>
       <div class="item-property">Property1</div>
       <div class="item-property">Property2</div>
-      <div class="item-property">Property3</div>
-      <div class="item-property">Property4</div>
     </div>
-    <div class="item-row" *ngFor="let link of [1,2,3,4,5,6,7,8,9]">
+    <div class="item-row">
       <div class="item-property">
-        <button md-button [routerLink]="['/specific', link]">link: {{link}}</button>
+        <button md-button routerLink="/specific">link: {{link}}</button>
       </div>
       <div class="item-property">Property1</div>
       <div class="item-property">Property2</div>
-      <div class="item-property">Property3</div>
-      <div class="item-property">Property4</div>
     </div>
   </div>
 </md-card>

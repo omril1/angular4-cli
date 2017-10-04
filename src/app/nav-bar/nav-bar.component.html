@@ -1,22 +1,17 @@
 <md-sidenav-container>
   <md-sidenav #sidenav class="example-sidenav" mode="side" opened="true">
     Jolly good!
-    <button md-mini-fab class="example-fab">
-      <md-icon>add</md-icon>
-    </button>
-    <button class="example-fab">
-      <md-icon>add</md-icon>
-    </button>
+    <br>
     <div class="example-content">
       <div>Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam veritatis excepturi aut debitis voluptates ipsa! Iste
         enim repellendus, animi voluptas temporibus sunt.</div>
     </div>
     <ul>
       <li [routerLinkActive]="['active']">
-        <a [routerLink]="['/specific', 5]">specific</a>
+        <a routerLink="/specific">specific</a>
       </li>
       <li [routerLinkActive]="['active']">
-        <a [routerLink]="['/']">mainView</a>
+        <a routerLink="/">mainView</a>
       </li>
     </ul>
   </md-sidenav>

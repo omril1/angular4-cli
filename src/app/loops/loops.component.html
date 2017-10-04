@@ -1,5 +1,5 @@
 <div class="visual-illusion" fxLayout="row" fxLayoutAlign="center center" 
-  (mousemove)="moveStuff($event)">
+  (mousemove)="mouseMove($event)" (mousedown)="mouseDown($event)" (mouseup)="mouseUp($event)">
   <div class="inner">
     <div class="face">Text!</div>
     <div class="face">Text!</div>
@@ -9,3 +9,10 @@
     <div class="face">Text!</div>
   </div>
 </div>
+
+<button class="plus" md-mini-fab>
+  <md-icon>add</md-icon>
+</button>
+<button class="minus" md-mini-fab>
+  <md-icon>remove</md-icon>
+</button>

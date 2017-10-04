@@ -1,4 +1,4 @@
-$size = 200px
+$size = 300px
 
 .visual-illusion
   width 100%
@@ -11,7 +11,7 @@ $size = 200px
     position relative
     transition transform 50ms linear
     .face
-      backface-visibility hidden
+      // backface-visibility hidden
       position absolute
       width $size
       height $size
@@ -19,23 +19,30 @@ $size = 200px
       top  "calc(50% - calc(%s / 2))" % $size
       perspective: 1000px;
       background-color currentColor
-      outline currentColor 48px dotted
-      box-shadow inset 0 0 16px 19px rgba(0, 0, 0, 0.65), 0 0 12px 7px #f00, 0 0 45px 83px rgba(0, 105, 171, 0.38)
+      box-shadow inset 0 0 12px 7px #f00
+      display: flex;
+      justify-content: center;
+      align-items: center;
       &.top
-        color: orange
-        transform rotateX(0deg) rotateY(90deg) translateZ(120px)
+        // color: orange
+        transform rotateX(0deg) rotateY(90deg) translateZ(150px)
       &.right
-        color: white
-        transform rotateX(90deg) rotateY(0deg) translateZ(120px)
+        // color: white
+        transform rotateX(90deg) rotateY(0deg) translateZ(150px)
       &.left
-        color: red
-        transform rotateX(-90deg) rotateY(0deg) translateZ(120px)
+        // color: red
+        transform rotateX(-90deg) rotateY(0deg) translateZ(150px)
       &.front
-        color: green
-        transform rotateX(0deg) rotateY(0deg) translateZ(120px)
+        // color: green
+        transform rotateX(0deg) rotateY(0deg) translateZ(150px)
       &.back
-        color: yellow
-        transform rotateX(180deg) rotateY(0deg) translateZ(120px)
+        // color: yellow
+        transform rotateX(180deg) rotateY(0deg) translateZ(150px)
       &.bottom
-        color: blue
-        transform rotateX(0deg) rotateY(-90deg) translateZ(120px)
+        // color: blue
+        transform rotateX(0deg) rotateY(-90deg) translateZ(150px)
+      > *
+        width: 100%; height: 100%;
+        margin: auto;
+        color: white;
+        font-size: 7em;

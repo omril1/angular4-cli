@@ -4,13 +4,14 @@
   "license": "MIT",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
+    "start": "ng serve --hmr -e=hmr",
     "build": "ng build",
     "buildProd": "ng build --prod",
     "deploy": "npm run buildProd && angular-cli-ghpages --no-silent --repo=https://github.com/omril1/omril1.github.io.git --branch master",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "hmr": "ng serve --hmr -e=hmr"
   },
   "private": true,
   "dependencies": {
@@ -32,6 +33,7 @@
   "devDependencies": {
     "@angular/cli": "1.0.4",
     "@angular/compiler-cli": "^4.0.0",
+    "@angularclass/hmr": "^2.1.3",
     "@types/jasmine": "2.5.38",
     "@types/node": "~6.0.60",
     "codelyzer": "~2.0.0",
@@ -40,9 +42,9 @@
     "karma": "~1.4.1",
     "karma-chrome-launcher": "~2.1.1",
     "karma-cli": "~1.0.1",
+    "karma-coverage-istanbul-reporter": "^0.2.0",
     "karma-jasmine": "~1.1.0",
     "karma-jasmine-html-reporter": "^0.2.2",
-    "karma-coverage-istanbul-reporter": "^0.2.0",
     "protractor": "~5.1.0",
     "ts-node": "~2.0.0",
     "tslint": "~4.5.0",

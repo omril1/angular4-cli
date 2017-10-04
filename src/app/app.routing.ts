@@ -5,7 +5,7 @@ import { LoopsComponent } from './loops/loops.component';
 
 const appRoutes: Routes = [
   { path: '', pathMatch: 'full', component: MainViewComponent },
-  { path: 'specific/:id', component: MoreSpecificComponent },
+  { path: 'specific', component: MoreSpecificComponent },
   { path: 'loops', component: LoopsComponent }
 ];
 export const AppRoutesModule = RouterModule.forRoot(appRoutes, { useHash: true });
