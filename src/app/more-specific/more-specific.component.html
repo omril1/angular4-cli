@@ -3,7 +3,7 @@
   <div class="inner">
     <div class="face" *ngFor="let face of [1,2,3,4,5,6]">
       <video autoplay loop> 
-        <source src="/assets/796814662.mp4" type="video/webm"> 
+        <source *ngIf="videoUrl" [src]="videoUrl" type="video/mp4"> 
       </video>
     </div>
   </div>

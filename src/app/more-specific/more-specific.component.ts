@@ -1,6 +1,5 @@
-import { Component, OnInit, NgZone} from '@angular/core';
-import { DomSanitizer, SafeStyle } from '@angular/platform-browser';
-import { ActivatedRoute } from '@angular/router';
+import { Component, OnInit, NgZone } from '@angular/core';
+import { DomSanitizer, SafeStyle, SafeUrl } from '@angular/platform-browser';
 import { Observable } from 'rxjs';
 import 'rxjs/add/operator/map';
 
@@ -14,14 +13,18 @@ export class MoreSpecificComponent implements OnInit {
   transformation = 0
   transOriginX = 0
   cubeOffset = ''
+  video: Blob
+  videoUrl: SafeUrl
 
-  constructor(private route: ActivatedRoute, private NgZone: NgZone, private sanitizer: DomSanitizer) { }
+  constructor(private NgZone: NgZone, private sanitizer: DomSanitizer) { }
 
-  ngOnInit () {
-    this.id = this.route.params.map(params => params['id']);
+  async ngOnInit() {
+    const response = await fetch('/assets/796814662.mp4');
+    this.video = await response.blob();
+    this.videoUrl = this.sanitizer.bypassSecurityTrustUrl(window.URL.createObjectURL(this.video));
   }
 
-  moveStuff (event) {
+  moveStuff(event) {
     let { offsetX, offsetY } = event;
     let { clientWidth, clientHeight } = event.target;
     let turnY = (clientWidth / 2 - offsetX) / clientWidth * 50;
