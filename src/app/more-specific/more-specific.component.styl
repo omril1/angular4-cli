@@ -10,6 +10,7 @@ $size = 300px
     pointer-events none
     position relative
     transition transform 50ms linear
+    will-change: transform; //tell the browser to optimize the rendering when the transform property changes
     .face
       backface-visibility hidden
       position: absolute;
